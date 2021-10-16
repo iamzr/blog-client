@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+
+header {
+  height: 10vh;
+  background: red;
+  padding: 10px;
+}
+
+.title {
+  font-size: 5vh;
+}
