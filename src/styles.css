@@ -1,13 +1,63 @@
-* {
-  box-sizing: border-box;
+.jumbotron {
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  border-radius: 0.3rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
-header {
-  height: 10vh;
-  background: red;
-  padding: 10px;
+.App {
+  /* background-image: url("../src/background.jpeg"); */
+  background-attachment: fixed;
 }
 
-.title {
-  font-size: 5vh;
+.overflow-auto {
+  overflow: auto;
+}
+
+@media (min-width: 576px) {
+  .App {
+    background-image: url("../src/background.jpeg") no-repeat center center
+      fixed;
+    background-size: cover;
+  }
+}
+
+.Card {
+  cursor: pointer;
+}
+
+@media (min-width: 576px) {
+  .post-container {
+    max-width: 540px;
+    margin: 0 auto 3em auto;
+  }
+}
+
+@media (min-width: 1000px) {
+  .post-container {
+    max-width: 850px;
+    margin: 0 auto 3em auto;
+  }
+}
+
+.contents {
+  white-space: pre-line;
+}
+
+.comments-list {
+  list-style: none;
+  padding: 0;
+}
+
+.comments-container {
+  margin-top: 20px;
+}
+
+.comment {
+  margin: 1.5em 0;
+}
+
+.title-container {
+  margin-bottom: 1.5em;
 }

@@ -1,0 +1,17 @@
+.Card {
+  cursor: pointer;
+}
+
+@media (min-width: 576px) {
+  .post-container {
+    max-width: 540px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1000px) {
+  .post-container {
+    max-width: 850px;
+    margin: 0 auto;
+  }
+}

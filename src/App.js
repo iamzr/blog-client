@@ -1,14 +1,36 @@
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Container } from "react-bootstrap";
+
+import AllPosts from "./AllPosts";
+import Post from "./Post.js";
+
+import("bootstrap/dist/css/bootstrap.min.css");
 import("./styles.css");
+
 function App() {
   return (
     <div className="App">
-      <header className="header">
-        <div className="title">My Simple Blog</div>
-      </header>
-      <div className="summary">
-        Some stuff a summary of your blog and all that
+      <div className="jumbotron text-center">
+        <Container>
+          <h1 className="jumbotron-heading">My Simple Blog</h1>
+        </Container>
+        <div>Some stuff a summary of your blog and all that</div>
       </div>
-      <div className="post-list"></div>
+
+      {/* <CardGroup className="album py-5 overflow-auto">
+        <div className="container">
+          <AllPosts></AllPosts>
+        </div>
+      </CardGroup> */}
+
+      <Router>
+        <Switch>
+          <Route path="/" exact component={AllPosts}></Route>
+          <Route path="/posts" exact component={AllPosts}></Route>
+          <Route path="/posts/:postid" component={Post} />
+        </Switch>
+      </Router>
     </div>
   );
 }
