@@ -14,8 +14,12 @@ class AllPosts extends Component {
 
   componentDidMount() {
     let header = new Headers();
+    console.log(process.env.REACT_APP_API_URL);
 
-    fetch("http://localhost:4000/posts", { mode: "cors", header: header })
+    fetch(String(process.env.REACT_APP_API_URL) + "posts", {
+      mode: "cors",
+      header: header,
+    })
       .then((response) => {
         // this.setState({
         //   posts: response.post_list,

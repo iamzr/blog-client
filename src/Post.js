@@ -11,7 +11,7 @@ function Post({ match }) {
 
   useEffect(() => {
     const path = "posts/" + postid;
-    const url = "http://localhost:4000/" + path;
+    const url = process.env.REACT_APP_API_URL + path;
 
     fetch(url, {
       mode: "cors",
@@ -26,7 +26,7 @@ function Post({ match }) {
         console.log(err);
       });
 
-    fetch("http://localhost:4000/posts/" + postid + "/comments", {
+    fetch(process.env.REACT_APP_API_URL + "posts/" + postid + "/comments", {
       mode: "cors",
     })
       .then((response) => {
@@ -90,17 +90,18 @@ function Post({ match }) {
     const [comment, setComment] = useState({
       name: "",
       email: "",
-      post: postid,
       content: "",
       anon: false,
     });
 
     const submit = (e) => {
       e.preventDefault();
-      fetch("http://localhost:4000/" + postid + "/comments", {
+      console.log(comment);
+      fetch(process.env.REACT_APP_API_URL + "posts/" + postid + "/comments", {
         method: "POST",
         mode: "cors",
-        body: JSON.stringify({ comment }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(comment),
         // headers: {
         // "Content-Type": "application/json",
         // },
@@ -145,7 +146,10 @@ function Post({ match }) {
             required
             placeholder="Enter Email"
             value={comment.email}
-            onChange={(e) => setComment({ ...comment, email: e.target.value })}
+            onChange={(e) => {
+              setComment({ ...comment, email: e.target.value });
+              console.log(e.target.value);
+            }}
           />
           {comments.errors && comment.errors.email && (
             <p>{comment.errors.email}</p>
@@ -174,7 +178,10 @@ function Post({ match }) {
             label="Post anonymously"
             value={comment.anon}
             name="comment[anon]"
-            onChange={(e) => setComment({ ...comment, anon: e.target.value })}
+            onChange={(e) => {
+              setComment({ ...comment, anon: e.target.checked });
+              console.log(e.target.checked);
+            }}
           ></Form.Check>
           {comments.errors && comment.errors.anon && (
             <p>{comment.errors.anon}</p>
