@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import he from "he";
 
@@ -9,7 +8,6 @@ function Post({ match }) {
   const postid = match.params.postid;
   const [post, setPost] = useState();
   const [comments, setComments] = useState();
-  const history = useHistory();
 
   useEffect(() => {
     const path = "posts/" + postid;
