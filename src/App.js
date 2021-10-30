@@ -13,7 +13,11 @@ function App() {
     <div className="App">
       <div className="jumbotron text-center">
         <Container>
-          <h1 className="jumbotron-heading">My Simple Blog</h1>
+          <h1 className="jumbotron-heading">
+            <a className="blog-name" href="/">
+              My Simple Blog
+            </a>
+          </h1>
         </Container>
         <div>Some stuff a summary of your blog and all that</div>
       </div>
