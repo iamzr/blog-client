@@ -55,7 +55,7 @@ class AllPosts extends Component {
               }}
               href="/posts/"
               key={"post" + post._id}
-              className="m-2"
+              className="m-2 post-card"
             >
               <Card.Body>
                 <Card.Title>{post.title}</Card.Title>
