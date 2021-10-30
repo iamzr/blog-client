@@ -95,7 +95,7 @@ function Post({ match }) {
     });
 
     const submit = (e) => {
-      e.preventDefault();
+      // e.preventDefault();
       console.log(comment);
       fetch(process.env.REACT_APP_API_URL + "posts/" + postid + "/comments", {
         method: "POST",
