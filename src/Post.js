@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import he from "he";
 
@@ -8,6 +9,7 @@ function Post({ match }) {
   const postid = match.params.postid;
   const [post, setPost] = useState();
   const [comments, setComments] = useState();
+  const history = useHistory();
 
   useEffect(() => {
     const path = "posts/" + postid;
@@ -95,7 +97,7 @@ function Post({ match }) {
     });
 
     const submit = (e) => {
-      // e.preventDefault();
+      e.preventDefault();
       console.log(comment);
       fetch(process.env.REACT_APP_API_URL + "posts/" + postid + "/comments", {
         method: "POST",
@@ -114,6 +116,7 @@ function Post({ match }) {
           console.log(json);
         })
         .catch((err) => console.log(err));
+      window.location.reload(false);
     };
 
     return (
