@@ -21,9 +21,6 @@ class AllPosts extends Component {
       header: header,
     })
       .then((response) => {
-        // this.setState({
-        //   posts: response.post_list,
-        // });
         console.log("gotten the postst");
         return response.json();
       })
