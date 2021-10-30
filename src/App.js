@@ -22,12 +22,6 @@ function App() {
         <div>Some stuff a summary of your blog and all that</div>
       </div>
 
-      {/* <CardGroup className="album py-5 overflow-auto">
-        <div className="container">
-          <AllPosts></AllPosts>
-        </div>
-      </CardGroup> */}
-
       <Router>
         <Switch>
           <Route path="/" exact component={AllPosts}></Route>
