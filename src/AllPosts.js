@@ -42,30 +42,34 @@ class AllPosts extends Component {
   render() {
     let { posts } = this.state;
 
-    return (
-      <div className="post-container">
-        {posts.map((post, index) => {
-          return (
-            <Card
-              onClick={() => {
-                this.redirect(post._id);
-              }}
-              href="/posts/"
-              key={"post" + post._id}
-              className="m-2 post-card"
-            >
-              <Card.Body>
-                <Card.Title>{post.title}</Card.Title>
-                <Card.Subtitle>
-                  {new Date(post.date_created).toLocaleDateString()}
-                </Card.Subtitle>
-                <Card.Text>{post.contents.substr(0, 100) + "..."}</Card.Text>
-              </Card.Body>
-            </Card>
-          );
-        })}
-      </div>
-    );
+    if (!(posts.length === 0)) {
+      return (
+        <div className="post-container">
+          {posts.map((post, index) => {
+            return (
+              <Card
+                onClick={() => {
+                  this.redirect(post._id);
+                }}
+                href="/posts/"
+                key={"post" + post._id}
+                className="m-2 post-card"
+              >
+                <Card.Body>
+                  <Card.Title>{post.title}</Card.Title>
+                  <Card.Subtitle>
+                    {new Date(post.date_created).toLocaleDateString()}
+                  </Card.Subtitle>
+                  <Card.Text>{post.contents.substr(0, 100) + "..."}</Card.Text>
+                </Card.Body>
+              </Card>
+            );
+          })}
+        </div>
+      );
+    } else {
+      return <div className="loader"></div>;
+    }
   }
 }
 

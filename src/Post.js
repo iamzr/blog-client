@@ -45,7 +45,7 @@ function Post({ match }) {
   }, [postid]);
 
   if (!post || !comments) {
-    return <div></div>;
+    return <div class="loader"></div>;
   } else {
     return (
       <div className="post-container">
